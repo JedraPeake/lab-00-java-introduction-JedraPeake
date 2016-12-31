@@ -3,7 +3,7 @@ package ca.uwo.eng.se2205b;
 import java.util.Iterator;
 
 /**
- * Finds prime numbers and checks if they are palindromes.
+ * Problem #2: Finds prime numbers and checks if they are palindromes.
  */
 public class PalindromicPrime {
 
