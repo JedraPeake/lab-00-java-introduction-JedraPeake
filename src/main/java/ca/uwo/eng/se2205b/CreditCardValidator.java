@@ -10,11 +10,11 @@ public class CreditCardValidator {
      * @param number Credit Card number to validate.
      * @return Non-{@code null} enum of the type of credit card.
      */
-    //is it okay to make static
+
     public static void validate(long number) {
         int i = 15;
         int numberList [] = new int[16];
-        //reversing the long
+        //reversing the long and storing in array
         while(number > 0) {
             numberList[i] = (int)(number%10);
             number /= 10;
@@ -32,26 +32,35 @@ public class CreditCardValidator {
             }
             sum += numberList[i];
         }
+
+        //printing
+        int z=15;
+        System.out.print("Your ");
+        while(numberList[z]==0) {
+            z--;
+        }
+        if(numberList[z] == 4) {System.out.print(CreditCard.Visa);}
+        else if(numberList[z] == 5) {System.out.print(CreditCard.MasterCard);}
+        else if(numberList[z] == 6) {System.out.print(CreditCard.Discover);}
+        else {System.out.print(CreditCard.AMEX);}
+
         if(sum%10 == 0) {
-            System.out.println("Your credit card number is valid");
-        } else {
-            System.out.println("Your credit card number is invalid");
+            System.out.println(" CreditCard is valid");
+        }
+        else {
+            System.out.println(" CreditCard is invalid");
         }
     }
 
-    public enum CreditNumbers {
-
+    public enum CreditCard{
+        Visa, MasterCard, AMEX, Discover
     }
 
-    //needed to run class...
+    //driver 1
     public static void main(String[] args) {
-        //driver 1
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter a credit card number: ");
         long creditcardNumber = sc.nextLong();
         validate(creditcardNumber);
-        //driver 2
-
     }
-
 }
