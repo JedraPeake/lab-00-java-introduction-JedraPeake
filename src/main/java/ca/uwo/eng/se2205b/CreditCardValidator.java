@@ -54,7 +54,7 @@ public class CreditCardValidator {
         }
     }
 
-    public enum CreditCard{
+    private enum CreditCard{
         Visa, MasterCard, AMEX, Discover
     }
 
