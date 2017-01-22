@@ -2,7 +2,7 @@ package ca.uwo.eng.se2205b;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-import java.util.Arrays;
+import java.util.Vector;
 /**
  * Problem #2: Finds prime numbers and checks if they are palindromes.
  */
@@ -11,27 +11,54 @@ public class PalindromicPrime {
      * Creates an iterator that returns prime palindrome numbers
      * @return Non-{@code null} iterator to get palindrome prime numbers.
      */
+    private final int start;
     private final int end;
 
-    public PalindromicPrime(int end){
-        this.end =100;
+    public PalindromicPrime(int start,int end){
+        this.end =end;
+        this.start =start;
     }
 
     public Iterator<Integer> palindromeIterator() {
-        return null;
+        return new PrimeIterator();
+        //null changed
+        //return null;
     }
-    private static class PrimeIterator implements Iterator<Integer> {
 
-        private int index=0;
-        private int maxNumbers=6;
+    //took out static///
+    private class PrimeIterator implements Iterator<Integer> {
+
+        private int index;
         private int numberList=100000;
-        int end;
+        private int populate=0;
 
-        private int[] myArray=new int[numberList];
+        public PrimeIterator() {
+            this.index = PalindromicPrime.this.start;
+            System.out.println("index set");
+        }
+
+        private int[] myArray=new int[113];
+
 
         private void populateArray(){
-            for (int i = 0; i < numberList; ++i) {
-                myArray[i] = i+1;
+            System.out.println("populate array");
+            int n=0;
+            for (int i = 2; i < numberList; ++i) {
+                if(i==2){
+                    myArray[n]=i;
+                    n++;
+                }
+                else if ((isPrime(i))&&(isPalindrome(i))){
+                    myArray[n]=i;
+                    n++;
+                }
+            }
+            for (int i = 0; i < myArray.length; ++i) {
+
+                if(i%10==0){
+                    System.out.println();
+                }
+                System.out.print(myArray[i]+"   ");
             }
         }
 
@@ -53,22 +80,20 @@ public class PalindromicPrime {
 
         @Override
         public boolean hasNext() {
-            return index < maxNumbers;
+            return index < PalindromicPrime.this.end;
         }
 
         @Override
         public Integer next() {
-            if(index==0){
+            if(populate==0){
                 populateArray();
-                index++;
+                populate++;
             }
-            int call=this.end;
-            return myArray[call];
-            //while(isPalindrome(myArray[current])&&isPrime(myArray[current])){
-            //while(isPrime(myArray[current])){
-            //}
-            //index++;
-            //return current;
+            //current = first element
+            int current =index;
+            System.out.println("current:" + current);
+            index++;
+            return current;
             //throw new NoSuchElementException();
         }
 
@@ -80,11 +105,42 @@ public class PalindromicPrime {
 
     public static void main(String[] args) {
 
-        PalindromicPrime x = new PalindromicPrime(100);
+        PalindromicPrime x = new PalindromicPrime(1,100);
         Iterator<Integer> i=x.palindromeIterator();
 
         while(i.hasNext()){
             System.out.println(i.next()+" ");
         }
+
+        //testing all in main...
+        /*
+        int z=1;
+        while(index!=maxNumbers){
+            int number=myArray[z];
+            String temp = new String(Integer.toString(number)).toString();
+            String temp2 = new StringBuilder(Integer.toString(number)).reverse().toString();
+            if(temp.equals(temp2)){
+                int prime=0;
+                for(int i=2;i<number;i++) {
+                    if(number%i==0)
+                        prime=1;
+                }
+                if(prime ==1){
+                    z++;
+                }
+                else{
+                    z++;
+                    index++;
+                    if(index%10==0){
+                        System.out.println();
+                    }
+                    System.out.print(number + "  ");
+                }
+            }
+            else{
+                z++;
+            }
+        }*/
     }
+
 }

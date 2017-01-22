@@ -14,12 +14,23 @@ public class CreditCardValidator {
     public static void validate(long number) {
         int i = 15;
         int numberList [] = new int[16];
-        //reversing the long and storing in array
+        //storing in array
         while(number > 0) {
             numberList[i] = (int)(number%10);
             number /= 10;
             i--;
         }
+
+
+        String type="a";
+        int z=0;
+        while(numberList[z]==0){
+            z++;
+        }
+        if(numberList[z] == 4) {type= String.valueOf(CreditCard.Visa);}
+        else if(numberList[z] == 5) {type= String.valueOf(CreditCard.MasterCard);}
+        else if(numberList[z] == 6) {type= String.valueOf(CreditCard.Discover);}
+        else {type= String.valueOf(CreditCard.AMEX);}
 
         //Checking Validation
         int sum = 0;
@@ -34,16 +45,7 @@ public class CreditCardValidator {
         }
 
         //printing
-        int z=15;
-        System.out.print("Your ");
-        while(numberList[z]==0) {
-            z--;
-        }
-        if(numberList[z] == 4) {System.out.print(CreditCard.Visa);}
-        else if(numberList[z] == 5) {System.out.print(CreditCard.MasterCard);}
-        else if(numberList[z] == 6) {System.out.print(CreditCard.Discover);}
-        else {System.out.print(CreditCard.AMEX);}
-
+        System.out.print("Your "+type);
         if(sum%10 == 0) {
             System.out.println(" CreditCard is valid");
         }
