@@ -2,7 +2,7 @@
 
 ##Q1 Project Setup
 
-![Screenshot](https://raw.githubusercontent.com/uwoece-se2205b-2017/lab-00-java-introduction-JedraPeke/master/Capture.PNG)lab-00-java-introduction-JedraPeake/Capture.PNG
+![Screenshot](https://raw.githubusercontent.com/uwoece-se2205b-2017/lab-00-java-introduction-JedraPeake/master/Capture.PNG?token=AXFuEcnoBpHIr9hWvXJN4XhL565pEiUVks5YjqYiwA%3D%3D)
 
 ##Q2 FizzBuzz
 
