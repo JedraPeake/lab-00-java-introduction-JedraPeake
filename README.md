@@ -71,7 +71,21 @@
 
 ##Q4 Credit Card Validation
 
-###Driver 2
-
 ###Driver 1
+####For 4388576018402626
+```
+Your Visa CreditCard is invalid
+```
+####For 4388576018410707
+```
+Your Visa CreditCard is valid
+```
+###Driver 2
+```
+Your MasterCard CreditCard is invalid
+Your Visa CreditCard is invalid
+Your Visa CreditCard is valid
+Your MasterCard CreditCard is valid
+Your AMEX CreditCard is valid
+```
 See lab document: https://uwoece-se2205b-2017.github.io/labs/00-java-introduction
