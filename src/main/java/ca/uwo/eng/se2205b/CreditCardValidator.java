@@ -14,13 +14,13 @@ public class CreditCardValidator {
     public static void validate(long number) {
         int i = 15;
         int numberList [] = new int[16];
+
         //storing in array
         while(number > 0) {
             numberList[i] = (int)(number%10);
             number /= 10;
             i--;
         }
-
 
         String type="a";
         int z=0;
