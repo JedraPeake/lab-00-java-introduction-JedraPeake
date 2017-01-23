@@ -5,7 +5,7 @@
 ![Screenshot](https://raw.githubusercontent.com/uwoece-se2205b-2017/lab-00-java-introduction-JedraPeake/master/Capture.PNG?token=AXFuEcnoBpHIr9hWvXJN4XhL565pEiUVks5YjqYiwA%3D%3D)
 
 ##Q2 FizzBuzz
-
+```
 1 
 2 
 3 Fizz
@@ -66,7 +66,7 @@
 58 
 59 
 60 FizzBuzz
-
+```
 ##Q3 Palindrom Primes
 
 ##Q4 Credit Card Validation
