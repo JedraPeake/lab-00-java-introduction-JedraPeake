@@ -71,9 +71,18 @@ public class PalindromicPrime {
         }
     }
     public static void main(String[] args) {
+        //final long startTime = System.nanoTime();
+        int lineCounter=0;
         PrimeIterator i= new PrimeIterator(0,100);
         while(i.hasNext()){
-            System.out.println(i.next()+" ");
+            lineCounter++;
+            System.out.print(i.next()+"\t" );
+            if(lineCounter %10==0)
+            {
+                System.out.println();
+            }
         }
+        //final long duration = System.nanoTime() - startTime;
+        //System.out.println(duration); //prints in nano seconds...
     }
 }
